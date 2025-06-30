@@ -24,5 +24,12 @@ class EmployeeDetailViewModel(
         viewModelScope.launch {
             _employee.postValue(repository.getEmployeeById(employeeId))
         }
+
+
+    }
+    fun updateEmployee(employee: EmployeeEntity) {
+        viewModelScope.launch {
+            repository.updateEmployee(employee)
+        }
     }
 }

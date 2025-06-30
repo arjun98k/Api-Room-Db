@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import com.example.apiroomdb.R
 import com.example.apiroomdb.data.local.AppDatabase
 import com.example.apiroomdb.data.repository.EmployeeRepository
 import com.example.apiroomdb.databinding.FragmentMainBinding
+import com.example.apiroomdb.entity.EmployeeEntity
 import com.example.apiroomdb.viewmodel.MainViewModel
 import com.example.apiroomdb.viewmodel.MainViewModelFactory
 
@@ -52,7 +54,7 @@ class MainFragment : Fragment() {
                 findNavController().navigate(action)
             },
             onDeleteClick = { employee ->
-                viewModel.deleteEmployee(employee)
+                showDeleteConfirmation(employee)
             }
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -64,6 +66,21 @@ class MainFragment : Fragment() {
             adapter.submitList(employees)
         }
     }
+
+    private fun showDeleteConfirmation(employee: EmployeeEntity) {
+        val builder = android.app.AlertDialog.Builder(requireContext())
+        builder.setTitle("Delete Employee")
+        builder.setMessage("Are you sure you want to delete this employee?")
+        builder.setPositiveButton("Yes") { _, _ ->
+            viewModel.deleteEmployee(employee)
+            Toast.makeText(requireContext(), "Employee deleted", Toast.LENGTH_SHORT).show()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.show()
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

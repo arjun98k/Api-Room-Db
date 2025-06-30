@@ -26,7 +26,6 @@
             android:gravity="center_horizontal"
             android:padding="16dp">
 
-            <!-- Circular profile image -->
             <ImageView
                 android:id="@+id/ivProfile"
                 android:layout_width="100dp"
@@ -43,16 +42,28 @@
                 android:text="Name: "
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tvMobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mobile: "
-                android:textSize="20sp"
-                android:layout_marginBottom="4dp"/>
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/etMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tvDesignation"
@@ -60,6 +71,20 @@
                 android:layout_height="wrap_content"
                 android:text="Designation: "
                 android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/etDesignation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Designation"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnEditSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_marginTop="16dp"/>
 
         </LinearLayout>
 
