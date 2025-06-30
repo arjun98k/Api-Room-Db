@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.apiroomdb.ui.main.MainFragment"
+        android:label="Main Fragment">
+
+        <action
+            android:id="@+id/action_mainFragment_to_addEmployeeFragment"
+            app:destination="@id/addEmployeeFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_employeeDetailFragment"
+            app:destination="@id/employeeDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addEmployeeFragment"
+        android:name="com.example.apiroomdb.ui.employee.AddEmployeeFragment"
+        android:label="Add Employee" />
+
+    <fragment
+        android:id="@+id/employeeDetailFragment"
+        android:name="com.example.apiroomdb.ui.employee.EmployeeDetailFragment"
+        android:label="Employee Detail">
+
+        <!-- Added argument to enable passing employeeId -->
+        <argument
+            android:name="employeeId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

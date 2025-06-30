@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ApiRoomdb</string>
+    <string name="login_label">Login</string>
+    <string name="user_info_label">User Info</string>
+    <string name="main_label">Main</string>
+    <string name="add_employee_label">Add Employee</string>
+    <string name="employee_detail_label">Employee Detail</string>
+
+</resources>
